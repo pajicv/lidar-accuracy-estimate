@@ -1,0 +1,29 @@
+{
+  "name": "lidar-accuracy-estimate",
+  "version": "0.0.1",
+  "description": "Estimate errors of airborne LiDAR system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pajicv/lidar-accuracy-estimate.git"
+  },
+  "keywords": [
+    "LiDAR",
+    "accuracy",
+    "errors",
+    "budget",
+    "estimate"
+  ],
+  "author": "pajicv@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pajicv/lidar-accuracy-estimate/issues"
+  },
+  "homepage": "https://github.com/pajicv/lidar-accuracy-estimate#readme",
+  "dependencies": {
+    "mathjs": "^3.20.2"
+  }
+}
