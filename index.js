@@ -20,7 +20,7 @@ const coordinatesWithErrors = flightline.map((position, i) => lidar.calculatePoi
 
 const difference = math.subtract(coordinatesWithErrors, coordinates);
 
-const writeFileCallback = (err, result) => !!err ? console.log(result) : console.log(err);
+const writeFileCallback = (err, result) => !err ? console.log(result) : console.log(err);
 
 fs.writeFile('./output/coordinates.xyz', coordinatesToCsv(coordinates), writeFileCallback);
 
