@@ -4,9 +4,9 @@ const math = require('mathjs');
 
 const fs = require('fs');
 
-const lidar = require('./lib/index');
+const lidar = require('./lib/lidar');
 
-const gnss = require('./lib/gnss');
+const gnss = require('./lib/simulation');
 
 const coordinatesToCsv = coordinates => coordinates.map(c => c.join(',')).join('\n');
 
@@ -20,8 +20,10 @@ const coordinatesWithErrors = flightline.map((position, i) => lidar.calculatePoi
 
 const difference = math.subtract(coordinatesWithErrors, coordinates);
 
-fs.writeFile('./output/coordinates.xyz', coordinatesToCsv(coordinates), (err, result) => !!err ? console.log(result) : console.log(err));
+const writeFileCallback = (err, result) => !!err ? console.log(result) : console.log(err);
 
-fs.writeFile('./output/coordinatesWithErrors.xyz', coordinatesToCsv(coordinatesWithErrors), (err, result) => !!err ? console.log(result) : console.log(err));
+fs.writeFile('./output/coordinates.xyz', coordinatesToCsv(coordinates), writeFileCallback);
 
-fs.writeFile('./output/difference1.csv', coordinatesToCsv(difference), (err, result) => !!err ? console.log(result) : console.log(err));
+fs.writeFile('./output/coordinatesWithErrors.xyz', coordinatesToCsv(coordinatesWithErrors), writeFileCallback);
+
+fs.writeFile('./output/difference1.csv', coordinatesToCsv(difference), writeFileCallback);
